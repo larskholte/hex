@@ -2,7 +2,7 @@
 
 #include "hex.h"
 
-static char HexCharForNibble(u8 n, int opts) {
+char HexCharForNibble(u8 n, int opts) {
 	if (n < 10) return '0' + n;
 	if (opts & HEX_OPT_UPPERCASE) {
 		return 'A' + n - 10;
@@ -10,7 +10,7 @@ static char HexCharForNibble(u8 n, int opts) {
 	return 'a' + n - 10;
 }
 
-static int NibbleForHexChar(char c) {
+int NibbleForHexChar(char c) {
 	if (c >  'f') return -1;
 	if (c >= 'a') return c - 'a' + 10;
 	if (c >  'F') return -1;

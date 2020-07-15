@@ -24,3 +24,12 @@ void ToHex(u8* bin, int binlen, char* hex, int opts);
 // Returns non-zero if the translation was successful. Otherwise, returns an error code.
 // In the case of HEX_ERR_OVERFLOW, binlen bytes will still be translated and stored in bin.
 int FromHex(u8* bin, int binlen, char* hex);
+
+// Returns the hexadecimal character which would be used to represent the given nibble (half-byte).
+// The given nibble value must be less than 16.
+// For instance, HexCharForNibble(10, HEX_OPT_UPPERCASE) == 'A' .
+char HexCharForNibble(u8 n, int opts);
+
+// Returns the integer value of the nibble represented by the given hexadecimal character.
+// For instance, NibbleForHexChar('A') == 10 .
+int NibbleForHexChar(char c);
